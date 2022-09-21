@@ -1,0 +1,17 @@
+.header {
+    max-width: 442px;
+    position: fixed;
+    z-index: 1000;
+    padding: 10px;
+    background: black;
+}
+
+.logo {
+    height: 50px;
+}
+
+.icon {
+    padding: 10px;
+    cursor: pointer;
+    color: white
+}

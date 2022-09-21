@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    overflow-y: scroll;
+    border: 1px solid black;
+    height: 100vh;
+    padding: 0 !important;
+}

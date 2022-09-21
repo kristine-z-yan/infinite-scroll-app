@@ -1,0 +1,25 @@
+.stories {
+    padding: 10px 10px 20px;
+    background: black;
+    margin-top: 56px;
+}
+
+.storyItem {
+    height: 80px;
+    width: 80px;
+    text-align: center;
+}
+
+.avatar {
+    height: 65px !important;
+    width: 65px !important;
+    margin: 0 auto;
+}
+
+.accountName {
+    color: white;
+    font-size: 13px;
+    margin: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
