@@ -1,12 +1,11 @@
 import React from 'react';
 
-import logoIcon  from '../../assets/images/logo.svg.png';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
 import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
 import MessageRoundedIcon from '@mui/icons-material/MessageRounded';
 import AbcIcon from '@mui/icons-material/Abc';
 import styles from './Header.module.css';
-import {Grid} from "@mui/material";
+import { Grid } from "@mui/material";
 
 const Header = () => {
     return (

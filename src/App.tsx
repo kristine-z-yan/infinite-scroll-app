@@ -4,6 +4,11 @@ import Home from "./pages/Home/Home";
 import {Container, CssBaseline} from "@mui/material";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from "react-router-dom";
 
 const darkTheme = createTheme({
     palette: {
@@ -16,10 +21,14 @@ function App() {
       <ThemeProvider theme={darkTheme}>
           <CssBaseline />
           <Container maxWidth="xs" className={styles.container}>
-              <Home />
+              <Router>
+                  <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/user" element={<Home />} />
+                  </Routes>
+              </Router>
           </Container>
       </ThemeProvider>
-
   );
 }
 

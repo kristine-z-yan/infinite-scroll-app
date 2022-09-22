@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Header from '../../components/Header/Header';
-import Stories from '../../containers/Stories/Stories';
-import Feed from "../../containers/Feed/Feed";
+import Stories from '../../features/stories/Stories';
+import Feed from "../../features/feed/Feed";
 import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
