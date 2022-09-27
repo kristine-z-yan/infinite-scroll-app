@@ -17,32 +17,47 @@ import BookmarkBorderSharpIcon from '@mui/icons-material/BookmarkBorderSharp';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 import styles from './FeedItem.module.css';
-import {Button} from "@mui/material";
+import {Post} from "../FeedSlice";
 
-const FeedItem = () => {
-    const username = 'john_doe';
-    const subheader = 'Armenia';
+type Props = {
+    post: Post;
+};
+
+const FeedItem: React.FC<Props> = (props) => {
+
+    const {
+        _id,
+        user_id,
+        media,
+        comments,
+        description,
+        likes,
+        location,
+        user,
+    } = props.post;
 
     return (
         <Card className={styles.feedItem}>
                 <CardHeader
                     avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                            R
-                        </Avatar>
+                        <Avatar
+                            src={user.avatar}
+                            sx={{ bgcolor: red[500] }}
+                            aria-label="user"
+                        />
                     }
                     action={
                         <IconButton aria-label="settings">
                             <MoreHorizIcon />
                         </IconButton>
                     }
-                    title={username}
-                    subheader={subheader}
+                    title={user.username}
+                    subheader={location}
                 />
                 <CardMedia
                     component="img"
                     height="444"
-                    image="https://picsum.photos/444"
+                    image={media}
                     alt="Paella dish"
                 />
                 <CardActions disableSpacing>
@@ -60,11 +75,11 @@ const FeedItem = () => {
                     </IconButton>
                 </CardActions>
                 <CardContent sx={{padding: '0 16px'}}>
-                    <Typography variant="body1">100 likes</Typography>
+                    <Typography variant="body1">{likes} likes</Typography>
                     <div>
-                        <Typography variant="body2"  component="span">{username}</Typography>
+                        <Typography variant="body2"  component="span">{user.username}</Typography>
                         <Typography variant="body2" color="text.secondary" component="span" marginLeft={1}>
-                            This impressive paella is a perfect party dish ...
+                            {description}
                         </Typography>
                     </div>
                     <Typography variant="subtitle2" display="block" my={1} color="text.secondary">

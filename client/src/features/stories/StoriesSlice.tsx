@@ -45,4 +45,4 @@ const storiesSlice = createSlice({
     reducers: {},
 })
 
-export default storiesSlice;
+export default storiesSlice.reducer;
