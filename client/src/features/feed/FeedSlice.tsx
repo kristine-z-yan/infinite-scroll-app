@@ -30,6 +30,12 @@ const feedSlice = createSlice({
                 ...state,
                 posts: payload
             }
+        },
+        getNextPostsSuccess: (state, { payload }) => {
+            return {
+                ...state,
+                posts: [ ...state.posts, ...payload]
+            }
         }
     },
 })

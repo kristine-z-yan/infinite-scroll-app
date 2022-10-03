@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Avatar, Grid} from "@mui/material";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import styles from './Stories.module.css';
 import {useAppSelector} from "../../app/hooks";
+import {useDispatch} from "react-redux";
+import {Dispatch} from "@reduxjs/toolkit";
+import {fetchFolloweesStories} from "./StoriesApi";
+import {Story} from "./StoriesSlice";
 
 const responsive = {
     desktop: {
@@ -25,7 +29,19 @@ const responsive = {
 
 const Stories = () => {
     const loggedUser = useAppSelector(state => state.users.loggedUser);
-    const followeesStories = useAppSelector(state => state.stories.followeesStories);
+    const followeesStoriesData = useAppSelector(state => state.stories.followeesStories);
+    const [followeesStories, setFolloweesStories] = useState<Story[]>([])
+
+    const dispatch = useDispatch<Dispatch<any>>();
+
+    useEffect(()=>{
+        dispatch(fetchFolloweesStories())
+    },[])
+
+    useEffect(() => {
+        setFolloweesStories(followeesStoriesData)
+    }, [followeesStoriesData])
+
     return (
             <Carousel
                 swipeable={true}
