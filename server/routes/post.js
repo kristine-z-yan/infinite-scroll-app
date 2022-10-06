@@ -13,9 +13,23 @@ const ObjectId = require("mongodb").ObjectId;
 
 
 recordRoutes.route("/posts").get(function (req, res) {
+    let { limit = 2, page = 1, user_id } = req.query;
+    const skip = (page - 1) * limit;
+    let db_connect = dbo.getDb("infini");
+    db_connect
+        .collection("posts")
+        .find({ user_id: 1 })
+        .skip(skip)
+        .limit(limit)
+        .toArray(function (err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
+});
+
+recordRoutes.route("/followees-posts").get(function (req, res) {
     let { limit = 2, page = 1 } = req.query;
     const skip = (page - 1) * limit;
-
     let db_connect = dbo.getDb("infini");
     db_connect
         .collection("posts")
@@ -32,6 +46,9 @@ recordRoutes.route("/posts").get(function (req, res) {
                 $set: {
                     user: { $arrayElemAt: ["$user", 0] }
                 }
+            },
+            {
+                $match: {$or: [{user_id: 2}, {user_id: 3}]}
             }
         ])
         .skip(skip)
@@ -41,6 +58,7 @@ recordRoutes.route("/posts").get(function (req, res) {
             res.json(result);
         });
 });
+
 
 // This section will help you get a single record by id
 recordRoutes.route("/posts/:id").get(function (req, res) {

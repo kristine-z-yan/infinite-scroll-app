@@ -1,34 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Grid} from "@mui/material";
+import { Avatar, Grid } from "@mui/material";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import styles from './Stories.module.css';
-import {useAppSelector} from "../../app/hooks";
-import {useDispatch} from "react-redux";
-import {Dispatch} from "@reduxjs/toolkit";
-import {fetchFolloweesStories} from "./StoriesApi";
-import {Story} from "./StoriesSlice";
-
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 5,
-        slidesToSlide: 2 // optional, default to 1.
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 5,
-        slidesToSlide: 2
-    },
-    mobile: {
-        breakpoint: { max: 444, min: 0 },
-        items: 5,
-        slidesToSlide: 3
-    }
-};
+import { useAppSelector } from "../../app/hooks";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
+import { fetchFolloweesStories } from "./StoriesApi";
+import { Story } from "./StoriesSlice";
+import { responsive } from "../../constants/breakpoints";
 
 const Stories = () => {
-    const loggedUser = useAppSelector(state => state.users.loggedUser);
     const followeesStoriesData = useAppSelector(state => state.stories.followeesStories);
     const [followeesStories, setFolloweesStories] = useState<Story[]>([])
 

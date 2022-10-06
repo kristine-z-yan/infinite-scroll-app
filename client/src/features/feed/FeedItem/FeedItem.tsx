@@ -16,7 +16,7 @@ import BookmarkBorderSharpIcon from '@mui/icons-material/BookmarkBorderSharp';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 import styles from './FeedItem.module.css';
-import {Post} from "../FeedSlice";
+import {Post} from "../../posts/PostsSlice";
 
 type Props = {
     post: Post;

@@ -1,7 +1,7 @@
 .header {
     max-width: 442px;
     position: fixed;
-    z-index: 9999;
+    z-index: 999;
     padding: 10px;
     background: black;
 }
