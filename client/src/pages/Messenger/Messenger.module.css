@@ -1,0 +1,16 @@
+.header {
+    max-width: 442px;
+    position: fixed;
+    z-index: 999;
+    padding: 10px;
+    background: black;
+}
+
+.back {
+    color: white;
+    text-decoration: none
+}
+
+.back>span {
+   margin-left: 10px;
+}

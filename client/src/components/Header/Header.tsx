@@ -5,7 +5,8 @@ import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
 import MessageRoundedIcon from '@mui/icons-material/MessageRounded';
 import AbcIcon from '@mui/icons-material/Abc';
 import styles from './Header.module.css';
-import { Grid } from "@mui/material";
+import {Avatar, Grid} from "@mui/material";
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -29,7 +30,9 @@ const Header = () => {
                      <FavoriteBorderSharpIcon />
                  </span>
                  <span className={styles.icon}>
-                     <MessageRoundedIcon />
+                     <Link to="/messenger">
+                        <MessageRoundedIcon />
+                    </Link>
                  </span>
             </Grid>
         </Grid>

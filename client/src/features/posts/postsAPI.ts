@@ -1,22 +1,6 @@
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import { PostsActions } from "./PostsSlice";
 
-export function fetchFolloweesPosts(id: number, followees: number[]) {
-    return fetchPosts(1, id, followees)
-}
-
-export function fetchFolloweesNextPosts(page: number, id: number, followees: number[]) {
-    return fetchPosts(page, id, followees)
-}
-
-export function fetchUserPosts(id: number) {
-    return fetchPosts(1, id, [])
-}
-
-export function fetchUserNextPosts(page: number, id: number) {
-    return fetchPosts(page, id)
-}
-
 export function fetchPosts(page: number, user_id: number, followees: number[] = []) {
     return  async (dispatch: ActionCreatorWithPayload<any>) => {
         // dispatch(getPostsPending())
